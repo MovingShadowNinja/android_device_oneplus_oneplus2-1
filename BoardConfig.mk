@@ -138,12 +138,16 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 HAVE_ADRENO_SOURCE:= false
 OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 
+#Enable HW based full disk encryption
+TARGET_HW_DISK_ENCRYPTION := false
+
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_oneplus2
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
+TARGET_LIBINIT_DEFINES_FILE := $(PLATFORM_PATH)/init/init_oneplus2.cpp
 
 # Keystore
 TARGET_PROVIDES_KEYMASTER := true
@@ -160,6 +164,8 @@ TARGET_NO_RPC := true
 # Sensors
 USE_SENSOR_MULTI_HAL := true
 BOARD_GLOBAL_CFLAGS += -DCOMPAT_SENSORS_M
+BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
+TARGET_USES_IMS := true
 
 # Enable dexpreopt to speed boot time
 ifeq ($(HOST_OS),linux)
