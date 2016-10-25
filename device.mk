@@ -104,6 +104,7 @@ PRODUCT_PACKAGES += \
     camera.msm8994 \
     libcamera_shim \
     sensors.hal.tof \
+    Camera2 \
     Snap
 
 # Connectivity Engine support (CNE)
